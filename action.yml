@@ -1,0 +1,10 @@
+name: "Terraform Smoketest"
+description: "Assert that a module can be initialized and validated, and that the pre-commit hooks have been run."
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  env:
+    AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+    AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
