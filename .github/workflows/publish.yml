@@ -7,6 +7,8 @@ jobs:
     name: Push Docker image to GitHub Packages
     runs-on: ubuntu-latest
     steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
       - name: Login to GitHub Packages Docker Registry
         uses: docker/login-action@v1
         with:
@@ -17,9 +19,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: ${{ github.repository_owner }}/terraform-smoketest-action:latest #${{ env.GITHUB_REF }}
-#      - name: Check out the repo
-#        uses: actions/checkout@v2
+          tags: ${{ github.repository_owner }}/terraform-smoketest-action:${{ github.ref }}
 #      - name: Push to GitHub Packages
 #        uses: docker/build-push-action@v1
 #        with:
