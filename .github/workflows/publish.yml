@@ -1,7 +1,8 @@
 name: Publish Docker image
-on:
-  release:
-    types: [published]
+on: 
+  push
+#  release:
+#    types: [published]
 jobs:
   push_to_registry:
     name: Push Docker image to GitHub Packages
@@ -9,11 +10,15 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
-      - name: Push to GitHub Packages
-        uses: docker/build-push-action@v1
+      - name: Login to GitHub Packages Docker Registry
+        uses: docker/login-action@v1
         with:
-          username: ${{ github.actor }}
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-          registry: docker.pkg.github.com
-          repository: skm-ice/terraform-smoketest-action/action
-          tag_with_ref: true
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: ghcr.io/${{ github.repository_owner }}/terraform-smoketest-action:latest
