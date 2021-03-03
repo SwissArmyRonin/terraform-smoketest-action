@@ -3,7 +3,7 @@ FROM alpine:3
 ENV TERRAFORM_HOME=/terraform
 ENV PATH=${PATH}:${TERRAFORM_HOME}
 
-RUN apk add --no-cache curl make py3-pip libc6-compat git bash && \
+RUN apk add --no-cache curl make py3-pip libc6-compat git bash perl && \
     pip3 install pre-commit && \
     mkdir ${TERRAFORM_HOME} && \
     curl -sL https://raw.githubusercontent.com/warrensbox/terraform-switcher/release/install.sh | bash -s -- -b ${TERRAFORM_HOME} && \
