@@ -1,10 +1,9 @@
-FROM ubuntu
+FROM alpine:3
 
 ENV TERRAFORM_HOME=/terraform
 ENV PATH=${PATH}:${TERRAFORM_HOME}
 
-RUN apt update -qq && \
-    apt install -y make curl openssh-client git python3-pip git && \
+RUN apk add --no-cache curl make py3-pip libc6-compat git bash && \
     pip3 install pre-commit && \
     mkdir ${TERRAFORM_HOME} && \
     curl -sL https://raw.githubusercontent.com/warrensbox/terraform-switcher/release/install.sh | bash -s -- -b ${TERRAFORM_HOME} && \
