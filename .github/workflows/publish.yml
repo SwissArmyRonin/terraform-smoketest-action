@@ -19,7 +19,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: ${{ github.repository_owner }}/terraform-smoketest-action:${{ github.ref }}
+          tags: ${{ github.repository_owner }}/terraform-smoketest-action:$GITHUB_REF
 #      - name: Push to GitHub Packages
 #        uses: docker/build-push-action@v1
 #        with:
