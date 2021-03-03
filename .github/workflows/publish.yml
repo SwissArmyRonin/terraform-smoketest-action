@@ -21,7 +21,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/terraform-smoketest-action:latest
+          tags: ghcr.io/swissarmyronin/terraform-smoketest-action:latest
 #      - name: Push to GitHub Packages
 #        uses: docker/build-push-action@v1
 #        with:
