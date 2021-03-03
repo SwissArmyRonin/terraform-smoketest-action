@@ -12,8 +12,8 @@ inputs:
     required: false
     default: "eu-west-1"
 runs:
-  using: "docker"
-  image: "Dockerfile"
+  using: docker
+  image: docker://docker.pkg.github.com/skm-ice/terraform-smoketest-action/action:v3
   env:
     AWS_ACCESS_KEY_ID: ${{ inputs.aws_access_key_id }}
     AWS_SECRET_ACCESS_KEY: ${{ inputs.aws_secret_access_key }}
