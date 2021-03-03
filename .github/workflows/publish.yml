@@ -22,12 +22,3 @@ jobs:
           context: .
           push: true
           tags: ghcr.io/swissarmyronin/terraform-smoketest-action:latest
-#      - name: Push to GitHub Packages
-#        uses: docker/build-push-action@v1
-#        with:
-#          username: ${{ github.actor }}
-#          password: ${{ secrets.GITHUB_TOKEN }}
-#          registry: docker.pkg.github.com
-#          repository: skm-ice/terraform-smoketest-action/action
-#          tag_with_ref: true
- 
