@@ -24,7 +24,7 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       - name: Run smoketest
-        uses: skm-ice/terraform-smoketest-action@v1
+        uses: SwissArmyRonin/terraform-smoketest-action@v4
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
